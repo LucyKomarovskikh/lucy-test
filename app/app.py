@@ -3,7 +3,6 @@ import mysql.connector
 import requests
 import datetime
 import pandas
-import sys
 
 
 app = Flask(__name__)
@@ -90,7 +89,7 @@ def put_it_all_together():
         data_from_api = get_data_api()
         data_db = get_data_db(connection)
         n = monitor_db(data_db, data_from_api)
-        return 'The database has been updated at '+ str(DATE_TODAY) +'    ' + str(n) 
+        return 'The database has been updated at '+ str(DATE_TODAY) +' ------ ' + str(n)+' rows were inserted on update'
     else:
         return redirect(url_for('initial_load'))
         
